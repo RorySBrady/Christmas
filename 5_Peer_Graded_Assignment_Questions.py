@@ -161,7 +161,7 @@ app.layout = (html.Div(children=[
                 State("plot2", "children"),
                 State("plot3", "children"), 
                 State("plot4", "children"),
-                State("plot5", "children")
+                State("plot5", "children"),
                ])
 )               
 
