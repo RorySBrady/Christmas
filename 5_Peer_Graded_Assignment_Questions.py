@@ -82,8 +82,7 @@ def compute_data_choice_2(df):
 app.layout = (html.Div(children=[ 
                                 # TODO1: Add title to the dashboard
                                 html.H1('US Domestic Airline Flights Performance',
-                                        style={'text-align-last':'centre','color':'#503D36','font-size':24}
-                                       ),
+                                        style={'text-align-last':'centre','color':'#503D36','font-size':24}),
                                 # REVIEW2: Dropdown creation
                                 # Create an outer division 
                                 html.Div([
@@ -127,7 +126,7 @@ app.layout = (html.Div(children=[
                                 # Add Computed graphs
                                 # REVIEW3: Observe how we add an empty division and providing an id that will be updated during callback
                                 html.Div([ ], id='plot1'),
-    
+
                                 html.Div([
                                           html.Div([ ], id='plot2'),
                                           html.Div([ ], id='plot3')
@@ -161,9 +160,8 @@ app.layout = (html.Div(children=[
                 State("plot2", "children"),
                 State("plot3", "children"), 
                 State("plot4", "children"),
-                State("plot5", "children"),
-               ])
-)               
+                State("plot5", "children")
+                ])
 
 # Add computation to callback function and return graph
 def get_graph(chart, year, children1, children2, c3, c4, c5):
