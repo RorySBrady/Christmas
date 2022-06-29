@@ -1,13 +1,13 @@
 # Import required libraries
-import pandas as pd
-import dash
-from dash import html
-from dash import dcc
-from dash.dependencies import Input, Output, State
-from jupyter_dash import JupyterDash
-import plotly.graph_objects as go
-import plotly.express as px
-from dash import no_update
+# import pandas as pd
+# import dash
+# bfrom dash import html
+# from dash import dcc
+# from dash.dependencies import Input, Output, State
+# from jupyter_dash import JupyterDash
+# import plotly.graph_objects as go
+# import plotly.express as px
+# from dash import no_update
 
 # Import required libraries
 import pandas as pd
@@ -79,7 +79,7 @@ def compute_data_choice_2(df):
 
 
 # Application layout
-app.layout = (html.Div(children=[ 
+app.layout = html.Div(children=[ 
                                 # TODO1: Add title to the dashboard
                                 html.H1('US Domestic Airline Flights Performance',
                                         style={'text-align-last':'centre','color':'#503D36','font-size':24}),
@@ -137,11 +137,9 @@ app.layout = (html.Div(children=[
                                 html.Div([
                                           html.Div([ ], id='plot4'),
                                           html.Div([ ], id='plot5')
-                                         ], 
-                                          style={'display': 'flex'}),
-                                        ], 
+                                ],
 )                                     
-                                
+                            
 
 # Callback function definition
 # TODO4: Add 5 ouput components
@@ -160,8 +158,9 @@ app.layout = (html.Div(children=[
                 State("plot2", "children"),
                 State("plot3", "children"), 
                 State("plot4", "children"),
-                State("plot5", "children")
-                ])
+                State("plot5", "children"),
+               ],
+)           
 
 # Add computation to callback function and return graph
 def get_graph(chart, year, children1, children2, c3, c4, c5):
@@ -226,3 +225,6 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
                    dcc.Graph(figure=nas_fig), 
                    dcc.Graph(figure=sec_fig), 
                    dcc.Graph(figure=late_fig)]
+
+    if __name__ == '__main__':
+    app.run_server()  
