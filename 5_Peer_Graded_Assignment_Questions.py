@@ -58,7 +58,7 @@ def compute_data_choice_1(df):
     map_data = df.groupby(['OriginState'])['Flights'].sum().reset_index()
     # Destination state count
     tree_data = df.groupby(['DestState', 'Reporting_Airline'])['Flights'].sum().reset_index()
-    return [bar_data, line_data, div_data, map_data, tree_data]
+    return bar_data, line_data, div_data, map_data, tree_data
 
 """Compute graph data for creating yearly airline delay report
 This function takes in airline data and selected year as an input and performs computation for creating charts and plots.
@@ -75,7 +75,7 @@ def compute_data_choice_2(df):
     avg_NAS = df.groupby(['Month','Reporting_Airline'])['NASDelay'].mean().reset_index()
     avg_sec = df.groupby(['Month','Reporting_Airline'])['SecurityDelay'].mean().reset_index()
     avg_late = df.groupby(['Month','Reporting_Airline'])['LateAircraftDelay'].mean().reset_index()
-    return [avg_car, avg_weather, avg_NAS, avg_sec, avg_late]
+    return avg_car, avg_weather, avg_NAS, avg_sec, avg_late
 
 
 # Application layout
@@ -227,4 +227,4 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
                    dcc.Graph(figure=late_fig)]
 
     if __name__ == '__main__':
-    app.run_server()  
+    app.run_server()    
